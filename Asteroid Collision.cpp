@@ -11,15 +11,15 @@ public:
                 st.push(asteroids[i]);
             } 
             else {
-                // 
-                if (!st.empty()  &&
+                // pop the ele until top ele > curr ele
+                while(!st.empty()  && st.top() > 0 &&
                        st.top() < abs(asteroids[i])) {
                     st.pop();
                 }
                 if (!st.empty() && st.top() == abs(asteroids[i])) {
                     st.pop(); // Both asteroids are destroyed ( equal) --> again pop
                 } else if (st.empty() || st.top() < 0) {
-                    //if first ele is -ve 
+                    //if first is -ve 
                     st.push(asteroids[i]);
                 }
             }
